@@ -6,6 +6,8 @@
 
 package com.okode.monkeybot;
 
+import java.util.List;
+
 import javax.annotation.PostConstruct;
 
 import org.slf4j.Logger;
@@ -39,16 +41,19 @@ public class MonkeyBot {
 			    Message message = e.getMessage();
 			    String body = message.getBody();
 			    if (body == null || "".equals(body)) return;
-			    log.info("Message received: {}", message.getBody());
-			    String response;
+			    log.info("Message received: {}", body);
+			    List<String> responses;
 				try {
-					response = monkeyProcessor.analyze(body);
-					xmppClient.send(new Message(message.getFrom(), Message.Type.CHAT, response));
-				} catch (Exception e1) {
+					responses = monkeyProcessor.analyze(body);
+					for(String response : responses) {
+						log.info("Sending response: {}", response);
+						xmppClient.send(new Message(message.getFrom(), Message.Type.CHAT, response));						
+					}
+				} catch (Exception ex) {
 					log.error("Could not analyze text: {}", body);
 				}
 			});
-			xmppClient.login("rgil", "zxc123", "MonkeyBot");
+			xmppClient.login("bot", "zxc123", "docker");
 			synchronized (this) {
 				wait();
 			}

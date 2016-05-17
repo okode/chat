@@ -32,10 +32,10 @@ public class MonkeyBot {
 	void init() throws XmppException, InterruptedException {
 		log.info("Monkeybot init");
 		TcpConnectionConfiguration tcpConfiguration = TcpConnectionConfiguration.builder()
-			    .hostname("cloud.okode.com")
+			    .hostname("sky.okode.com")
 			    .port(5222)
 			    .build();
-		try (XmppClient xmppClient = new XmppClient("cloud.okode.com", tcpConfiguration)) {
+		try (XmppClient xmppClient = new XmppClient("sky.okode.com", tcpConfiguration)) {
 			xmppClient.connect();
 			xmppClient.addInboundMessageListener(e -> {
 			    Message message = e.getMessage();

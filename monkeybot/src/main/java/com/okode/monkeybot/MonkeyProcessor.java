@@ -12,6 +12,7 @@ import java.util.List;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.monkeylearn.MonkeyLearn;
@@ -21,7 +22,10 @@ import com.monkeylearn.MonkeyLearnResponse;
 @Component
 public class MonkeyProcessor {
 
-	private MonkeyLearn monkeyLearn = new MonkeyLearn("f04e2e0c9dd81993d6ec3f3b2b143ce1ec474dea");
+	@Autowired
+	private Configuration configuration;
+	
+	private MonkeyLearn monkeyLearn = new MonkeyLearn(configuration.getMonkeylearnToken());
 	
 	private String analyze(String moduleId, String type, String text) throws MonkeyLearnException {
 		MonkeyLearnResponse res = monkeyLearn.classifiers.classify(moduleId, (String[]) Arrays.asList(text).toArray(), true);

@@ -4,3 +4,5 @@ xmpp:
   user: bot
   password: zxc123
   resource: java
+
+monkeylearn.token: f04e2e0c9dd81993d6ec3f3b2b143ce1ec474dea

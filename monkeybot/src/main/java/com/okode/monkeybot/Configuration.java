@@ -27,6 +27,9 @@ public class Configuration {
 	@Value("${xmpp.resource}")
 	private String xmppResource;
 	
+	@Value("${monkeylearn.token}")
+	private String monkeylearnToken;
+	
 	public String getXmppHost() {
 		return xmppHost;
 	}
@@ -47,4 +50,7 @@ public class Configuration {
 		return xmppPort;
 	}
 	
+	public String getMonkeylearnToken() {
+		return monkeylearnToken;
+	}
 }

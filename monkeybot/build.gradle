@@ -31,7 +31,6 @@ license {
 }
 
 springBoot {
-    executable = true
     excludeDevtools = true
 }
 

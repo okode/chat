@@ -2,4 +2,4 @@
 
 FROM java
 
-CMD /monkeybot/monkeybot.jar
+CMD exec java -jar /monkeybot/monkeybot.jar

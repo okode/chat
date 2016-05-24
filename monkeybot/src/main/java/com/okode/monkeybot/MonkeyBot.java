@@ -69,10 +69,10 @@ public class MonkeyBot implements ApplicationListener<ContextRefreshedEvent> {
 			    try {
 					List<String> responses = monkeyProcessor.analyze(body);
 					for(String response : responses) {
-				
+
 						log.info("Sending response: {}", response);
-						
-						xmppClient.send(new Message(message.getFrom(), Message.Type.CHAT, response));						
+
+						xmppClient.send(new Message(message.getFrom(), Message.Type.CHAT, response));
 					}
 				} catch (Exception ex) {
 					log.error("Could not analyze text: {}", body);
@@ -80,10 +80,14 @@ public class MonkeyBot implements ApplicationListener<ContextRefreshedEvent> {
 			
 			});
 
+			log.info("Monkeybot login user: {}", configuration.getXmppUser());
+			
 			xmppClient.login(
 					configuration.getXmppUser(),
 					configuration.getXmppPassword(),
 					configuration.getXmppResource());
+			
+			log.info("Monkeybot logged ok. Waiting for messages...");
 		}
 	}
 

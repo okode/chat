@@ -1,0 +1,6 @@
+xmpp:
+  host: cloud.okode.com
+  port: 5222
+  user: bot
+  password: zxc123
+  resource: java

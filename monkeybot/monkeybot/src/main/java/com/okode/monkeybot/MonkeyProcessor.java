@@ -25,9 +25,9 @@ public class MonkeyProcessor {
 	
 	private String analyze(String moduleId, String type, String text) throws MonkeyLearnException {
 		MonkeyLearnResponse res = monkeyLearn.classifiers.classify(moduleId, (String[]) Arrays.asList(text).toArray(), true);
-				
+
 		JSONArray results = (JSONArray) res.arrayResult.get(0);
-				
+
 		String response = type + ": ";
 		int size = results.size();
 		for (int index = 0; index < size; index++) {
@@ -35,10 +35,10 @@ public class MonkeyProcessor {
 			String label = (String) element.get("label");
 			response += label + " ";
 		}
-		
+
 		return response;
 	}
-	
+
 	public List<String> analyze(String text) throws MonkeyLearnException, InterruptedException {
 		
 		List<String> responses = new ArrayList<>();

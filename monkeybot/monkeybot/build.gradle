@@ -39,6 +39,7 @@ dependencies {
 
 	compile     'org.springframework.boot:spring-boot-starter'
 	compile     'org.springframework.boot:spring-boot-devtools'
+	compile     'org.apache.commons:commons-lang3'
 	compile     'rocks.xmpp:xmpp-core-client:0.6.2'
 	compile     'com.monkeylearn:monkeylearn-java:0.1.2'
 	testCompile 'org.springframework.boot:spring-boot-starter-test'

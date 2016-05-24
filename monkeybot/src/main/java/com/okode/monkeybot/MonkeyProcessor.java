@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +27,12 @@ public class MonkeyProcessor {
 	@Autowired
 	private Configuration configuration;
 	
-	private MonkeyLearn monkeyLearn = new MonkeyLearn(configuration.getMonkeylearnToken());
+	private MonkeyLearn monkeyLearn;
+	
+	@PostConstruct
+	void init() {
+		monkeyLearn = new MonkeyLearn(configuration.getMonkeylearnToken());
+	}
 	
 	private String analyze(String moduleId, String type, String text) throws MonkeyLearnException {
 		MonkeyLearnResponse res = monkeyLearn.classifiers.classify(moduleId, (String[]) Arrays.asList(text).toArray(), true);

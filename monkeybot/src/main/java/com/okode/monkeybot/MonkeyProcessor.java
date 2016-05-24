@@ -51,22 +51,8 @@ public class MonkeyProcessor {
 	}
 
 	public List<String> analyze(String text) throws MonkeyLearnException, InterruptedException {
-		
 		List<String> responses = new ArrayList<>();
-		
-		// News
-		responses.add(analyze("cl_6hvxGfLu", "Noticias", text));
-		
-		Thread.sleep(3000);
-		
-		// Sentiment
 		responses.add(analyze("cl_u9PRHNzf", "Sensación", text));
-		
-		Thread.sleep(3000);
-		
-		// Products
-		responses.add(analyze("cl_eaa5vnQ6", "Productos", text));
-		
 		return responses;
 	}
 	

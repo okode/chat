@@ -35,6 +35,8 @@ springBoot {
     excludeDevtools = true
 }
 
+jar { archiveName = 'monkeybot.jar' }
+
 dependencies {
 
 	compile     'org.springframework.boot:spring-boot-starter'

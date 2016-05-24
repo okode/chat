@@ -4,4 +4,4 @@ services:
   monkeybot:
     build: .
     volumes:
-      - ./monkeybot:/monkeybot
+      - ./build/libs/monkeybot.jar:/monkeybot/monkeybot.jar

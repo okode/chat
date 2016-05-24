@@ -4,7 +4,7 @@ Monkeybot
 Building
 --------
 
-    $ cd monkeybot && ./gradlew build && cd -
+    $ ./gradlew build
     $ docker-compose build
 
 Running

@@ -3,5 +3,5 @@ version: '2'
 services:
   monkeybot:
     build: .
-    ports:
-      - "8080"
+    volumes:
+      - ./monkeybot:/monkeybot

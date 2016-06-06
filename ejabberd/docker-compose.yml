@@ -1,0 +1,19 @@
+version: '2'
+
+services:
+
+  ejabberd:
+    image: 'rroemhild/ejabberd:latest'
+    environment:
+      - EJABBERD_ADMINS=admin@cloud.okode.com
+      - "EJABBERD_SSLCERT_CLOUD_OKODE_COM=%%%PUT HERE YOUR CERTIFICATE WITH \n IF NEEDED%%%"
+      - "EJABBERD_SSLCERT_HOST=%%%PUT HERE YOUR CERTIFICATE WITH \n IF NEEDED%%%"
+      - 'EJABBERD_USERS=admin@cloud.okode.com:fakepass pjorquera@cloud.okode.com:fakepass rgil@cloud.okode.com:fakepass bot@cloud.okode.com:fakepass'
+      - ERLANG_NODE=ejabberd
+      - XMPP_DOMAIN=cloud.okode.com
+    ports:
+      - '4560:4560'
+      - '5222:5222'
+      - '5269:5269'
+      - '5280:5280'
+      - '5443:5443'
